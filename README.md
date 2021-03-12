@@ -1,2 +1,7 @@
-# SFFD-Database
-Response Times for San Francisco Fire Department Battalions
+# San Francisco Fire Department Response Times
+
+### Data Preparation
+The following analysis was completed using Python coding in Jupyter Notebooks to query the DataSF Fire Department Calls for Service API using sodapy from Socrata.  Data was imported, cleaned, then loaded into a new dataframe and exported to a csv file.  Data cleaning included changing datatypes, clearing null values, calculating fields for month and response time, and eliminating outliers in the data.
+
+### Automating Data Retrieval
+To make this data retrieval process a trivial daily task, I have set up the API call such that it takes data from today looking backwards to one year ago.  Using the API call always retrieves the most current information, and using today as the anchor, the Jupyter Notebook simply needs to be run to update the data.  Superfluous code, such as the histogram and box plots and alternate restrictions, should be removed.  In its current state, the data is overwritten with each update.  Code could be modified to read the existing CSV to a Pandas dataframe, append the dataframe with new data, then save the updated file to its original.  With this model,  the query should not extend further back than the most recent update to prevent data redundances.  
